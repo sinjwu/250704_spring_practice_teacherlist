@@ -11,7 +11,7 @@
     <a href="/">홈으로</a>
     <a href="/teachers">교사 목록</a>
 </p>
-<form th:action="${teacher.id} == null ? @{/teachers/add} : @{/teachers/edit}"  th:object="${teacher}" method="post">
+<form th:action="{${teacher.id} == null ? '/teachers/add' : '/teachers/edit'}"  th:object="${teacher}" method="post">
     <p><label>이름: <input type="text" th:field="*{name}" required/></label></p>
     <p>
         <button type="submit">저장</button>

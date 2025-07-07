@@ -9,7 +9,7 @@
   <h1>교사 목록</h1>
   <p>
     <a href="/">홈으로</a>
-    <a href="/teachers">교사 등록</a>
+    <a href="/teachers/add">교사 등록</a>
   </p>
 <table>
   <thead>
@@ -25,6 +25,9 @@
     <td th:text="${teacher.name}"></td>
     <td>
       <a th:href="@{'/teachers/edit/' + ${teacher.id}}">수정</a>
+      <form th:action="@{'/teachers/delete' + ${teacher.id}}" method="post" style="display:inline;">
+        <button type="submit">삭제</button>
+      </form>
     </td>
   </tr>
   </tbody>
