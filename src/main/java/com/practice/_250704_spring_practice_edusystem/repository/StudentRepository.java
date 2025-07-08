@@ -20,14 +20,14 @@ public class StudentRepository {
             .teacherName(resultSet.getString("teacher_name"))
             .build();
     public List<Student> findAll() {
-        String sql = "SELECT s.id, s.name, s.score, s.teacher_id, t.name AS teacher_name" +
+        String sql = "SELECT s.id, s.name, s.score, s.teacher_id, t.name AS teacher_name " +
                 "FROM student s LEFT JOIN teacher t ON s.teacher_id = t.id " +
                 "ORDER BY s.id";
         return jdbcTemplate.query(sql, mapper);
     }
     public Student findById(int id) {
-        String sql = "SELECT s.id, s.name, s.score, s.teacher_id t.name AS teacher_name " +
-                "FROM student s LEFT JOIN teacher t ON s.teacher_id = t.id" +
+        String sql = "SELECT s.id, s.name, s.score, s.teacher_id, t.name AS teacher_name " +
+                "FROM student s LEFT JOIN teacher t ON s.teacher_id = t.id " +
                 "WHERE s.id = ?";
         return jdbcTemplate.queryForObject(sql, mapper, id);
     }

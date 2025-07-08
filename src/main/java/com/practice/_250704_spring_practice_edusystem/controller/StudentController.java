@@ -35,14 +35,14 @@ public class StudentController {
         studentRepository.save(student);
         return "redirect:/students";
     }
-    @GetMapping("/edit{/id}")
+    @GetMapping("/edit/{id}")
     public String editForm(@PathVariable int id, Model model) {
         Student student = studentRepository.findById(id);
         List<Teacher> teachers = teacherRepository.findAll();
         model.addAttribute("student", student);
         model.addAttribute("teachers", teachers);
         return "student-form";
-    };
+    }
     @PostMapping("/edit")
     public String edit(@ModelAttribute Student student) {
         studentRepository.update(student);

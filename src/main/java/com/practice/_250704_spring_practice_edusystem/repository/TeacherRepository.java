@@ -21,7 +21,7 @@ public class TeacherRepository {
         return jdbcTemplate.query("SELECT * FROM teacher ORDER BY name", mapper);
     }
     public Teacher findById(int id) {
-        return jdbcTemplate.queryForObject("SELECT * FROM teacher WHERE id = ?", mapper);
+        return jdbcTemplate.queryForObject("SELECT * FROM teacher WHERE id = ?", mapper, id);
     }
     public int save(Teacher teacher) {
         return  jdbcTemplate.update(
