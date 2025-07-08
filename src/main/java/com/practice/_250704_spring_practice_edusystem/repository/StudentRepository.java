@@ -39,7 +39,7 @@ public class StudentRepository {
     }
     public int update(Student student) {
         return jdbcTemplate.update(
-                "UPDATE student SET name = ?, score = ?, teacher_id = WHERE id = ?",
+                "UPDATE student SET name = ?, score = ?, teacher_id = ? WHERE id = ?",
                 student.getName(), student.getScore(), student.getTeacherId(), student.getId()
         );
     }
